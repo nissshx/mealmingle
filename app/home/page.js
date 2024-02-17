@@ -1,14 +1,38 @@
-import Image from 'next/image'
+import { UserSquare } from 'iconic-react';
 
-import connectDB from '../db'
-connectDB();
-export default function Page() {
+const { MongoClient } = require('mongodb');
+const uri = process.env.MONGO_URI;
+const client = new MongoClient(uri);
+
+async function run() {
+  try {
+    await client.connect();
+    const db = client.db('mealmingle');
+    const collection = db.collection('restaurants');
+
+    // Find the first document in the collection
+    const first = await collection.findOne();
+    return first;
+  } finally {
+    console.log('Extracted restaurant data');
+  }
+}
+
+const x = await run();
+const page = () => {
+const imageuri = " data:image/jpg;base64,"+x.image;
   return (
-    <Image
-      src="https://images.unsplash.com/photo-1682687220198-88e9bdea9931?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8"
-      width={500}
-      height={500}
-      alt="Picture of the author"
-    />
+    <div className='h-screen  max-w-screen-sm bg-slate-50 text-green-600 dark:bg-slate-800 '>
+        <div className='flex justify-between   text-slate-950 dark:text-slate-200'>
+            <h1>Lovely Professional University</h1>
+            <h1>Welcome, Nishant</h1>
+            <UserSquare size="32" color="#555555" />
+          
+
+        </div>
+    </div>
+  
   )
 }
+
+export default page
