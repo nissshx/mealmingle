@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
-
+import { Analytics } from '@vercel/analytics/react';
  
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +27,9 @@ export default function RootLayout({ children }) {
 <meta name="apple-mobile-web-app-status-bar-style" content="#ffffff"></meta>
       </head>
       
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>{children}
+      <Analytics />
+      </body>
     </html>
   );
 }
