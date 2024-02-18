@@ -71,6 +71,7 @@
 }
 *{
   font-family: 'tc';
+  font-display: swap;
 }
 .rs-cover-image{
   background-position: center;
