@@ -31,7 +31,7 @@ const page = () => {
             <div className='grid grid-cols-1 space-y-0'>
             <h1 className='text-2xl'>{x.address}</h1>
             <h1>lorem</h1>
-           <Link href="(/restaurant/${x.name})">  ORDER NOW</Link>
+            ORDER NOW
             </div>
             </div> 
             </div>
