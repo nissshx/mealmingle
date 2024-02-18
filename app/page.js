@@ -2,6 +2,7 @@ import * as React from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Head from "next/head"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 const page = () => {
  
   return (
