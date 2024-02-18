@@ -72,3 +72,9 @@
 *{
   font-family: 'tc';
 }
+.rs-cover-image{
+  background-position: center;
+  background-size: cover;
+  background-clip:padding-box ;
+  background-color: green;
+  }
